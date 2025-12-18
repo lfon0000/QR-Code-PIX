@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #6a1b9a;
+    --primary-dark: #4a148c;
+    --secondary-color: #546e7a;
+    --whatsapp-color: #25D366;
+    --whatsapp-dark: #128C7E;
+    --background: #fafafa;
+    --card-bg: #ffffff;
+    --text-color: #212121;
+    --text-light: #666666;
+    --border-color: #e0e0e0;
+    --accent: #ff6f00;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sistema de Telas */
+.tela {
+    display: none;
+    min-height: 100vh;
+    padding: 16px;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.tela.active {
+    display: flex;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.header-compact {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    gap: 12px;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.3);
+}
+
+.logo-small {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 800;
+    margin-top: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.slogan {
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 4px;
+    font-size: 1.1rem;
+}
+
+/* Tela Inicial */
+.tela-inicial-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.info-box {
+    background: var(--card-bg);
+    padding: 24px;
+    border-radius: 16px;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-box p {
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.beneficiario-nome {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.apelido {
+    font-style: italic;
+    color: var(--text-light) !important;
+    margin-bottom: 12px !important;
+}
+
+.chave {
+    font-family: monospace;
+    font-size: 1rem;
+    background: var(--background);
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+footer {
+    text-align: center;
+    padding: 16px 0;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Botoes */
+.btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 12px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-grande {
+    padding: 20px 24px;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.3);
+}
+
+.btn-primary:active {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+
+.btn-secondary:active {
+    background-color: #455a64;
+}
+
+.btn-whatsapp {
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+}
+
+.btn-whatsapp:active {
+    background-color: var(--whatsapp-dark);
+}
+
+.btn-copiar {
+    background-color: #1976d2;
+    color: #ffffff;
+}
+
+.btn-copiar:active {
+    background-color: #1565c0;
+}
+
+/* Tela Valor */
+.tela-valor-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.frase-motivacional,
+.frase-cobranca {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 24px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(106, 27, 154, 0.1), rgba(255, 111, 0, 0.1));
+    border-radius: 12px;
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 4px;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input-wrapper:focus-within {
+    border-color: var(--primary-color);
+}
+
+.currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+    padding: 0 12px;
+    flex-shrink: 0;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 12px;
+    font-size: 2rem;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    color: var(--text-color);
+    width: 100%;
+}
+
+.input-group input:focus {
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+/* Tela Resultado */
+.tela-resultado-content {
+    flex: 1;
+    padding-bottom: 20px;
+}
+
+.valor-destaque {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.valor-destaque span {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+#qrcode-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 2px solid var(--primary-color);
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.15);
+}
+
+#qrcode-canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.codigo-container {
+    margin-bottom: 20px;
+}
+
+.codigo-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.codigo-container textarea {
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    font-size: 0.7rem;
+    font-family: 'Courier New', monospace;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: none;
+    background: var(--card-bg);
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.botoes-compartilhar {
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.instrucao-compartilhar {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.botoes-compartilhar .btn {
+    margin-bottom: 10px;
+}
+
+.botoes-compartilhar .btn:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+.toast.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 360px) {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .input-group input {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+
+    .valor-destaque span {
+        font-size: 1.8rem;
+    }
+}

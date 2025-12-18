@@ -1,0 +1,21 @@
+{
+    "name": "Paga Nois - PIX do Lui",
+    "short_name": "Paga Nois",
+    "description": "Gerador de QR Code PIX para cobrar os amigos",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#6a1b9a",
+    "theme_color": "#6a1b9a",
+    "orientation": "portrait",
+    "scope": "./",
+    "icons": [
+        {
+            "src": "foto-lui.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": ["finance", "utilities"],
+    "lang": "pt-BR"
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#6a1b9a">
+    <meta name="description" content="Paga Nois - Gerador de PIX do Lui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Paga Nois">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="foto-lui.png">
+    <link rel="apple-touch-icon" href="foto-lui.png">
+    <title>Paga Nois - PIX do Lui</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- TELA 1: Inicial -->
+        <div id="tela-inicial" class="tela active">
+            <header>
+                <img src="foto-lui.png" alt="Lui" class="logo">
+                <h1>Paga Nois!</h1>
+                <p class="slogan">Ta devendo? Acerta ai!</p>
+            </header>
+
+            <main class="tela-inicial-content">
+                <div class="info-box">
+                    <p class="beneficiario-nome">Luiz Fernando Osorio Neto</p>
+                    <p class="apelido">(vulgo Lui)</p>
+                    <p class="chave"><strong>PIX:</strong> 00546654002</p>
+                </div>
+
+                <button id="btn-nova-cobranca" class="btn btn-primary btn-grande">
+                    Cobrar Amigo
+                </button>
+            </main>
+
+            <footer>
+                <p>Feito com mass revolta por quem ta cansado de ficar no prejuizo</p>
+            </footer>
+        </div>
+
+        <!-- TELA 2: Valor -->
+        <div id="tela-valor" class="tela">
+            <header class="header-compact">
+                <img src="foto-lui.png" alt="Lui" class="logo-small">
+                <h2>Quanto te devem?</h2>
+            </header>
+
+            <main class="tela-valor-content">
+                <p class="frase-motivacional" id="frase-valor"></p>
+
+                <div class="input-group">
+                    <label for="valor">Valor da divida:</label>
+                    <div class="input-wrapper">
+                        <span class="currency">R$</span>
+                        <input type="text" id="valor" inputmode="decimal" placeholder="0,00" autocomplete="off">
+                    </div>
+                </div>
+
+                <button id="btn-gerar" class="btn btn-primary">
+                    Gerar Cobranca
+                </button>
+
+                <button id="btn-voltar-inicial" class="btn btn-secondary">
+                    Voltar
+                </button>
+            </main>
+        </div>
+
+        <!-- TELA 3: Resultado -->
+        <div id="tela-resultado" class="tela">
+            <header class="header-compact">
+                <img src="foto-lui.png" alt="Lui" class="logo-small">
+                <h2>Manda pro caloteiro!</h2>
+            </header>
+
+            <main class="tela-resultado-content">
+                <p class="frase-cobranca" id="frase-cobranca"></p>
+
+                <div class="valor-destaque">
+                    <span id="valor-display">R$ 0,00</span>
+                </div>
+
+                <div id="qrcode-wrapper">
+                    <canvas id="qrcode-canvas"></canvas>
+                </div>
+
+                <div class="codigo-container">
+                    <label>Codigo Copia e Cola:</label>
+                    <textarea id="codigo-pix" readonly></textarea>
+                    <button id="btn-copiar" class="btn btn-copiar">
+                        Copiar Codigo
+                    </button>
+                </div>
+
+                <div class="botoes-compartilhar">
+                    <p class="instrucao-compartilhar">Envia pro devedor:</p>
+
+                    <button id="btn-enviar-imagem" class="btn btn-whatsapp">
+                        Mandar QR Code
+                    </button>
+
+                    <button id="btn-enviar-codigo" class="btn btn-whatsapp">
+                        Mandar Codigo PIX
+                    </button>
+
+                    <button id="btn-enviar-mensagem" class="btn btn-whatsapp">
+                        Mandar Cobranca Completa
+                    </button>
+                </div>
+
+                <button id="btn-nova-cobranca-resultado" class="btn btn-primary">
+                    Cobrar Outro Amigo
+                </button>
+
+                <button id="btn-voltar-inicio" class="btn btn-secondary">
+                    Voltar ao Inicio
+                </button>
+            </main>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden">Codigo copiado!</div>
+
+    <script src="qrcode.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
