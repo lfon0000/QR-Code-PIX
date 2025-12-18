@@ -1,7 +1,7 @@
 {
-    "name": "Paga Nois - PIX do Lui",
+    "name": "Paga Nois - Cobre seus amigos!",
     "short_name": "Paga Nois",
-    "description": "Gerador de QR Code PIX para cobrar os amigos",
+    "description": "Cansado de ficar no prejuizo? Cobre seus amigos de um jeito divertido!",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#6a1b9a",
@@ -10,12 +10,12 @@
     "scope": "./",
     "icons": [
         {
-            "src": "foto-lui.png",
+            "src": "icon-default.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
         }
     ],
-    "categories": ["finance", "utilities"],
+    "categories": ["finance", "utilities", "social"],
     "lang": "pt-BR"
 }

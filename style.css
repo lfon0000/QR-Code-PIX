@@ -7,6 +7,7 @@
 :root {
     --primary-color: #6a1b9a;
     --primary-dark: #4a148c;
+    --primary-light: #9c4dcc;
     --secondary-color: #546e7a;
     --whatsapp-color: #25D366;
     --whatsapp-dark: #128C7E;
@@ -16,6 +17,7 @@
     --text-light: #666666;
     --border-color: #e0e0e0;
     --accent: #ff6f00;
+    --error: #d32f2f;
 }
 
 body {
@@ -49,7 +51,160 @@ body {
     display: flex;
 }
 
-/* Header */
+/* ==================== ONBOARDING ==================== */
+.onboarding-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.onboarding-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 30px rgba(106, 27, 154, 0.3);
+}
+
+.onboarding-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.onboarding-desc {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.features {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 40px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    text-align: left;
+}
+
+.feature-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.feature span:last-child {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* ==================== CADASTRO ==================== */
+.tela-cadastro-content {
+    flex: 1;
+    padding-bottom: 30px;
+}
+
+.foto-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 2px dashed var(--border-color);
+}
+
+.foto-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 3px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.foto-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.foto-placeholder {
+    font-size: 3rem;
+    color: var(--border-color);
+}
+
+.foto-dica {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 8px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.input-dica {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 6px;
+}
+
+/* ==================== HEADER ==================== */
 header {
     text-align: center;
     padding: 30px 0 20px;
@@ -101,7 +256,7 @@ h2 {
     font-size: 1.1rem;
 }
 
-/* Tela Inicial */
+/* ==================== TELA INICIAL ==================== */
 .tela-inicial-content {
     flex: 1;
     display: flex;
@@ -154,7 +309,7 @@ footer {
     font-style: italic;
 }
 
-/* Botoes */
+/* ==================== BOTOES ==================== */
 .btn {
     width: 100%;
     padding: 16px 24px;
@@ -176,6 +331,12 @@ footer {
     font-size: 1.2rem;
 }
 
+.btn-small {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    width: auto;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: #ffffff;
@@ -193,6 +354,16 @@ footer {
 
 .btn-secondary:active {
     background-color: #455a64;
+}
+
+.btn-config {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-config:active {
+    background: rgba(106, 27, 154, 0.1);
 }
 
 .btn-whatsapp {
@@ -213,7 +384,7 @@ footer {
     background-color: #1565c0;
 }
 
-/* Tela Valor */
+/* ==================== TELA VALOR ==================== */
 .tela-valor-content {
     flex: 1;
     display: flex;
@@ -239,7 +410,7 @@ footer {
     margin-bottom: 24px;
 }
 
-.input-group label {
+.input-group > label {
     display: block;
     font-weight: 600;
     margin-bottom: 12px;
@@ -272,7 +443,7 @@ footer {
     flex-shrink: 0;
 }
 
-.input-group input {
+.input-group .input-wrapper input {
     flex: 1;
     min-width: 0;
     padding: 16px 12px;
@@ -284,15 +455,15 @@ footer {
     width: 100%;
 }
 
-.input-group input:focus {
+.input-group .input-wrapper input:focus {
     outline: none;
 }
 
-.input-group input::placeholder {
+.input-group .input-wrapper input::placeholder {
     color: #bbb;
 }
 
-/* Tela Resultado */
+/* ==================== TELA RESULTADO ==================== */
 .tela-resultado-content {
     flex: 1;
     padding-bottom: 20px;
@@ -375,7 +546,7 @@ footer {
     margin-bottom: 0;
 }
 
-/* Toast */
+/* ==================== TOAST ==================== */
 .toast {
     position: fixed;
     bottom: 100px;
@@ -388,6 +559,8 @@ footer {
     font-size: 0.95rem;
     z-index: 1000;
     animation: fadeIn 0.3s;
+    max-width: 90%;
+    text-align: center;
 }
 
 .toast.hidden {
@@ -405,7 +578,7 @@ footer {
     }
 }
 
-/* Responsivo */
+/* ==================== RESPONSIVO ==================== */
 @media (max-width: 360px) {
     .logo {
         width: 100px;
@@ -416,7 +589,11 @@ footer {
         font-size: 1.6rem;
     }
 
-    .input-group input {
+    .onboarding-content h1 {
+        font-size: 2rem;
+    }
+
+    .input-group .input-wrapper input {
         font-size: 1.6rem;
     }
 
@@ -427,5 +604,10 @@ footer {
 
     .valor-destaque span {
         font-size: 1.8rem;
+    }
+
+    .foto-preview {
+        width: 100px;
+        height: 100px;
     }
 }

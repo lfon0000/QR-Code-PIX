@@ -1,24 +1,19 @@
-const CACHE_NAME = 'paga-nois-v1';
+const CACHE_NAME = 'paga-nois-v2';
 const urlsToCache = [
     './',
     './index.html',
     './style.css',
     './app.js',
     './qrcode.min.js',
-    './foto-lui.png',
+    './icon-default.png',
     './manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Cache aberto');
-                return cache.addAll(urlsToCache);
-            })
-            .then(() => {
-                self.skipWaiting();
-            })
+            .then((cache) => cache.addAll(urlsToCache))
+            .then(() => self.skipWaiting())
     );
 });
 
@@ -28,14 +23,11 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
-                        console.log('Removendo cache antigo:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
-        }).then(() => {
-            self.clients.claim();
-        })
+        }).then(() => self.clients.claim())
     );
 });
 
@@ -43,9 +35,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request)
             .then((response) => {
-                if (response) {
-                    return response;
-                }
+                if (response) return response;
 
                 return fetch(event.request)
                     .then((response) => {
@@ -55,15 +45,11 @@ self.addEventListener('fetch', (event) => {
 
                         const responseToCache = response.clone();
                         caches.open(CACHE_NAME)
-                            .then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
+                            .then((cache) => cache.put(event.request, responseToCache));
 
                         return response;
                     })
-                    .catch(() => {
-                        return caches.match('./index.html');
-                    });
+                    .catch(() => caches.match('./index.html'));
             })
     );
 });

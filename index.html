@@ -4,35 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#6a1b9a">
-    <meta name="description" content="Paga Nois - Gerador de PIX do Lui">
+    <meta name="description" content="Paga Nois - Cobre seus amigos de um jeito divertido">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Paga Nois">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="foto-lui.png">
-    <link rel="apple-touch-icon" href="foto-lui.png">
-    <title>Paga Nois - PIX do Lui</title>
+    <link rel="icon" type="image/png" href="icon-default.png">
+    <link rel="apple-touch-icon" href="icon-default.png">
+    <title>Paga Nois - Cobre seus amigos!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <!-- TELA 1: Inicial -->
-        <div id="tela-inicial" class="tela active">
+        <!-- TELA: Onboarding -->
+        <div id="tela-onboarding" class="tela">
+            <div class="onboarding-content">
+                <div class="onboarding-icon">$</div>
+                <h1>Paga Nois!</h1>
+                <p class="onboarding-desc">Cansado de ficar no prejuizo com os amigos?</p>
+
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">1</span>
+                        <span>Cadastre seu PIX</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">2</span>
+                        <span>Coloque sua foto</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">3</span>
+                        <span>Mande a cobranca!</span>
+                    </div>
+                </div>
+
+                <button id="btn-comecar" class="btn btn-primary btn-grande">
+                    Bora Comecar!
+                </button>
+            </div>
+        </div>
+
+        <!-- TELA: Cadastro -->
+        <div id="tela-cadastro" class="tela">
+            <header class="header-compact">
+                <h2>Configura ai!</h2>
+            </header>
+
+            <main class="tela-cadastro-content">
+                <div class="foto-upload-container">
+                    <div class="foto-preview" id="foto-preview">
+                        <span class="foto-placeholder">+</span>
+                    </div>
+                    <input type="file" id="input-foto" accept="image/*" hidden>
+                    <button id="btn-escolher-foto" class="btn btn-secondary btn-small">
+                        Escolher Foto
+                    </button>
+                    <p class="foto-dica">Sua foto vai aparecer no QR Code!</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-nome">Seu nome completo:</label>
+                    <input type="text" id="input-nome" placeholder="Ex: Joao da Silva" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-apelido">Seu apelido:</label>
+                    <input type="text" id="input-apelido" placeholder="Ex: Joaozinho" autocomplete="nickname">
+                </div>
+
+                <div class="form-group">
+                    <label for="input-chave">Sua chave PIX:</label>
+                    <input type="text" id="input-chave" placeholder="CPF, celular, email ou chave aleatoria">
+                    <p class="input-dica">Pode ser CPF, telefone, email ou chave aleatoria</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="input-cidade">Sua cidade:</label>
+                    <input type="text" id="input-cidade" placeholder="Ex: Sao Paulo" autocomplete="address-level2">
+                </div>
+
+                <button id="btn-salvar-cadastro" class="btn btn-primary">
+                    Salvar e Comecar!
+                </button>
+            </main>
+        </div>
+
+        <!-- TELA: Inicial -->
+        <div id="tela-inicial" class="tela">
             <header>
-                <img src="foto-lui.png" alt="Lui" class="logo">
+                <img src="" alt="Sua foto" class="logo" id="foto-usuario">
                 <h1>Paga Nois!</h1>
                 <p class="slogan">Ta devendo? Acerta ai!</p>
             </header>
 
             <main class="tela-inicial-content">
                 <div class="info-box">
-                    <p class="beneficiario-nome">Luiz Fernando Osorio Neto</p>
-                    <p class="apelido">(vulgo Lui)</p>
-                    <p class="chave"><strong>PIX:</strong> 00546654002</p>
+                    <p class="beneficiario-nome" id="display-nome"></p>
+                    <p class="apelido" id="display-apelido"></p>
+                    <p class="chave"><strong>PIX:</strong> <span id="display-chave"></span></p>
                 </div>
 
                 <button id="btn-nova-cobranca" class="btn btn-primary btn-grande">
                     Cobrar Amigo
+                </button>
+
+                <button id="btn-configuracoes" class="btn btn-config">
+                    Editar meus dados
                 </button>
             </main>
 
@@ -41,10 +118,10 @@
             </footer>
         </div>
 
-        <!-- TELA 2: Valor -->
+        <!-- TELA: Valor -->
         <div id="tela-valor" class="tela">
             <header class="header-compact">
-                <img src="foto-lui.png" alt="Lui" class="logo-small">
+                <img src="" alt="Foto" class="logo-small" id="foto-usuario-small">
                 <h2>Quanto te devem?</h2>
             </header>
 
@@ -69,10 +146,10 @@
             </main>
         </div>
 
-        <!-- TELA 3: Resultado -->
+        <!-- TELA: Resultado -->
         <div id="tela-resultado" class="tela">
             <header class="header-compact">
-                <img src="foto-lui.png" alt="Lui" class="logo-small">
+                <img src="" alt="Foto" class="logo-small" id="foto-usuario-resultado">
                 <h2>Manda pro caloteiro!</h2>
             </header>
 
@@ -120,9 +197,56 @@
                 </button>
             </main>
         </div>
+
+        <!-- TELA: Configuracoes -->
+        <div id="tela-config" class="tela">
+            <header class="header-compact">
+                <h2>Editar Dados</h2>
+            </header>
+
+            <main class="tela-cadastro-content">
+                <div class="foto-upload-container">
+                    <div class="foto-preview" id="foto-preview-config">
+                        <span class="foto-placeholder">+</span>
+                    </div>
+                    <input type="file" id="input-foto-config" accept="image/*" hidden>
+                    <button id="btn-escolher-foto-config" class="btn btn-secondary btn-small">
+                        Trocar Foto
+                    </button>
+                </div>
+
+                <div class="form-group">
+                    <label for="config-nome">Seu nome completo:</label>
+                    <input type="text" id="config-nome" placeholder="Ex: Joao da Silva">
+                </div>
+
+                <div class="form-group">
+                    <label for="config-apelido">Seu apelido:</label>
+                    <input type="text" id="config-apelido" placeholder="Ex: Joaozinho">
+                </div>
+
+                <div class="form-group">
+                    <label for="config-chave">Sua chave PIX:</label>
+                    <input type="text" id="config-chave" placeholder="CPF, celular, email ou chave aleatoria">
+                </div>
+
+                <div class="form-group">
+                    <label for="config-cidade">Sua cidade:</label>
+                    <input type="text" id="config-cidade" placeholder="Ex: Sao Paulo">
+                </div>
+
+                <button id="btn-salvar-config" class="btn btn-primary">
+                    Salvar Alteracoes
+                </button>
+
+                <button id="btn-cancelar-config" class="btn btn-secondary">
+                    Cancelar
+                </button>
+            </main>
+        </div>
     </div>
 
-    <div id="toast" class="toast hidden">Codigo copiado!</div>
+    <div id="toast" class="toast hidden">Mensagem</div>
 
     <script src="qrcode.min.js"></script>
     <script src="app.js"></script>
